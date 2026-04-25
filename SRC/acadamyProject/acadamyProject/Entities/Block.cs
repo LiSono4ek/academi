@@ -1,4 +1,4 @@
-﻿namespace MiniBlockchain.Domain.Entities;
+﻿namespace acadamyProject.Entities;
 
 public class Block
 {

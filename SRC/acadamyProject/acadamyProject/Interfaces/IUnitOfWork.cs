@@ -1,4 +1,4 @@
-﻿namespace MiniBlockchain.Infrastructure.Interfaces;
+﻿namespace acadamyProject.Interfaces;
 
 public interface IUnitOfWork : IDisposable
 {

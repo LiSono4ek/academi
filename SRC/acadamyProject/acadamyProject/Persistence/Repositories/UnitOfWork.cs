@@ -1,17 +1,17 @@
-﻿using MiniBlockchain.Infrastructure.Interfaces;
-using MiniBlockchain.Infrastructure.Persistence.Contexts;
+﻿using acadamyProject.Interfaces;
+using acadamyProject.Persistence.Contexts;
 
-namespace MiniBlockchain.Infrastructure.Persistence.Repositories;
+namespace acadamyProject.Persistence.Repositories;
 
 public class UnitOfWork : IUnitOfWork
 {
     private readonly ApplicationDbContext _context;
     public IBlockRepository Blocks { get; }
 
-    public UnitOfWork(ApplicationDbContext context, IBlockRepository blockRepository)
+    public UnitOfWork(ApplicationDbContext context, IBlockRepository blocks)
     {
         _context = context;
-        Blocks = blockRepository;
+        Blocks = blocks;
     }
 
     public async Task<int> SaveChangesAsync(CancellationToken ct) => await _context.SaveChangesAsync(ct);
