@@ -1,6 +1,5 @@
-using FluentValidation;
 using acadamyProject.Blocks.Commands;
-
+using FluentValidation;
 namespace acadamyProject.Blocks.Validators;
 
 public class CreateBlockCommandValidator : AbstractValidator<CreateBlockCommand>
