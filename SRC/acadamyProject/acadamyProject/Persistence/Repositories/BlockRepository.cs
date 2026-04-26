@@ -14,10 +14,15 @@ public class BlockRepository : IBlockRepository
         _context = context;
     }
 
-    public async Task AddAsync(Block entity, CancellationToken ct) => await _context.Blocks.AddAsync(entity, ct);
+    public async Task AddAsync(Block entity, CancellationToken ct) =>
+        await _context.Blocks.AddAsync(entity, ct);
 
-    public async Task<Block?> GetByIdAsync(Guid id, CancellationToken ct) => await _context.Blocks.FindAsync(new object[] { id }, ct);
+    public async Task<Block?> GetByIdAsync(Guid id, CancellationToken ct) =>
+        await _context.Blocks.FindAsync(new object[] { id }, ct);
 
     public async Task<Block?> GetLastBlockAsync(CancellationToken ct) =>
         await _context.Blocks.OrderByDescending(b => b.CreatedAt).FirstOrDefaultAsync(ct);
+
+    public async Task<IEnumerable<Block>> GetAllAsync(CancellationToken ct) =>
+        await _context.Blocks.ToListAsync(ct);
 }
